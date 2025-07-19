@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A comprehensive, accessible, and HIPAA-compliant guide to building a PC, including explanations of components, RAM types, storage, graphics, and more.">
+    <title>How to Build a PC: A Technical Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+    // Simple search for section titles
+    function searchSections() {
+        const input = document.getElementById('sectionSearch');
+        const filter = input.value.toLowerCase();
+        const sections = document.querySelectorAll('main > section');
+        let found = false;
+        for (const section of sections) {
+            const heading = section.querySelector('h2, h3');
+            if (heading && heading.textContent.toLowerCase().includes(filter)) {
+                section.scrollIntoView({behavior: 'smooth'});
+                section.focus();
+                found = true;
+                break;
+            }
+        }
+        if (!found && filter) {
+            alert('Section not found.');
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 id="top">How to Build a PC: A Technical Guide</h1>
+        <p>Accessible, private, and easy PC building explained.</p>
+        <form onsubmit="event.preventDefault(); searchSections();" aria-label="Search for a section" role="search">
+            <label for="sectionSearch" class="sr-only">Search sections</label>
+            <input type="search" id="sectionSearch" name="sectionSearch" placeholder="Search sections..." aria-label="Search sections" required autocomplete="off">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="#components">PC Components</a></li>
+            <li><a href="#ram">RAM Types</a></li>
+            <li><a href="#storage">Storage Devices</a></li>
+            <li><a href="#graphics">Graphics: Integrated vs GPU</a></li>
+            <li><a href="#slots">Motherboard Slots</a></li>
+            <li><a href="#assembly">Assembly Steps</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#maintenance">Maintenance</a></li>
+            <li><a href="#tools">Tools & Safety</a></li>
+            <li><a href="#accessibility">Accessibility & Privacy</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="tools" tabindex="0">
+                <h3>Accessing Part Manuals Online</h3>
+                <p>Most PC part manufacturers provide digital manuals on their official websites. To find a manual, search for your part's exact model number (found on the box or the part itself) along with the word "manual" or "user guide" in your preferred search engine. For example, search "ASUS B550-F manual" or "Corsair RM750x user guide." You can also visit the manufacturer's support or downloads page and enter your model number. Manuals are usually available as accessible PDF files, which can be read with screen readers and are compatible with most devices.</p>
+            <h2>Tools Needed & Safety Tips</h2>
+            <div class="card">
+                <h3>Essential Tools</h3>
+                <ul>
+                    <li><strong>Phillips #2 Screwdriver:</strong> The most common tool for PC assembly.</li>
+                    <li><strong>Anti-static Wrist Strap:</strong> Prevents electrostatic discharge (ESD) damage to sensitive components.</li>
+                    <li><strong>Small Container or Magnetic Tray:</strong> For holding screws and small parts.</li>
+                    <li><strong>Flashlight or Headlamp:</strong> For better visibility inside the case.</li>
+                    <li><strong>Cable Ties or Velcro Straps:</strong> For cable management and airflow.</li>
+                    <li><strong>Thermal Paste:</strong> If not pre-applied to your CPU cooler.</li>
+                    <li><strong>Compressed Air:</strong> For cleaning dust from components.</li>
+                    <li><strong>Manuals:</strong> Motherboard and case manuals are invaluable for correct connections.</li>
+                </ul>
+                <h3>Safety Tips</h3>
+                <ul>
+                    <li>Work on a clean, flat, static-free surface. Avoid carpeted areas.</li>
+                    <li>Unplug the power supply from the wall before connecting or disconnecting components.</li>
+                    <li>Handle all components by their edges, avoiding contact with circuitry and pins.</li>
+                    <li>Keep drinks and food away from your workspace.</li>
+                    <li>Take your time and double-check connections before powering on.</li>
+                </ul>
+                <h3>What is ESD (Electrostatic Discharge)?</h3>
+                <p><strong>ESD</strong> is the sudden flow of electricity between two electrically charged objects, often caused by contact or a short. Even a small static shock can damage sensitive PC components like CPUs, RAM, and motherboards. To prevent ESD:</p>
+                <ul>
+                    <li>Wear an anti-static wrist strap and clip it to an unpainted metal part of your case.</li>
+                    <li>Touch a grounded metal object before handling components.</li>
+                    <li>Avoid working on carpet and keep components in anti-static bags until use.</li>
+                </ul>
+                <p>Following ESD precautions helps ensure your PC build is safe and reliable.</p>
+            </div>
+        </section>
+        <section id="components" tabindex="0">
+            <h2>Essential PC Components</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Motherboard:</strong> The main circuit board connecting all components. It determines what CPUs, RAM, and expansion cards you can use. Look for features like Wi-Fi, Bluetooth, and the number of USB ports.</li>
+                    <li><strong>CPU (Processor):</strong> Executes instructions and calculations. Choose a CPU based on your needs (gaming, productivity, etc.). Modern CPUs have multiple cores and threads for multitasking.</li>
+                    <li><strong>RAM (Memory):</strong> Temporary, high-speed storage for active programs and data. 16GB is recommended for most users; more for heavy multitasking or content creation.</li>
+                    <li><strong>Storage (HDD, SSD, M.2):</strong> Permanent storage for your operating system, programs, and files. SSDs and M.2 drives are much faster than HDDs. Consider a combination for speed and capacity.</li>
+                    <li><strong>GPU (Graphics Card):</strong> Handles rendering of images, video, and 3D graphics. Dedicated GPUs are essential for gaming, video editing, and creative work. Integrated graphics are fine for basic tasks.</li>
+                    <li><strong>Power Supply (PSU):</strong> Converts AC power from the wall to DC power for your components. Choose a reliable, efficient PSU with enough wattage for your build. Modular PSUs help with cable management.</li>
+                    <li><strong>Case:</strong> The enclosure that houses and protects all components. Choose a case that fits your motherboard size (ATX, Micro-ATX, Mini-ITX) and has good airflow.</li>
+                    <li><strong>Cooling:</strong> Includes fans, heatsinks, and liquid cooling systems to keep components at safe temperatures. Good cooling extends component life and improves performance.</li>
+                    <li><strong>Operating System:</strong> Windows, Linux, or macOS (for Apple hardware). Choose based on your software needs.</li>
+                    <li><strong>Peripherals:</strong> Monitor, keyboard, mouse, speakers, and webcam. Choose based on your usage and accessibility needs.</li>
+                    <li><strong>Optional:</strong> Optical Drive (for CDs/DVDs), Network Card (if not built-in), Sound Card (for advanced audio), RGB lighting, and fan controllers.</li>
+                </ul>
+                <p><strong>Tip:</strong> Always check compatibility between your CPU, motherboard, and RAM before purchasing. Use online PC part picker tools to avoid issues.</p>
+            </div>
+            <h3>Motherboard Parts Explained</h3>
+            <div class="card">
+                <ul>
+                    <li><strong>CPU Socket:</strong> Where the CPU is installed. Must match your CPU's type (Intel or AMD).</li>
+                    <li><strong>RAM Slots (DIMM):</strong> Where memory modules are installed. Number and type depend on motherboard.</li>
+                    <li><strong>PCIe Slots:</strong> For expansion cards like GPUs, sound cards, and network cards. PCIe x16 is for graphics cards; x1/x4 for others.</li>
+                    <li><strong>M.2 Slot:</strong> For M.2 SSDs or Wi-Fi cards. Check if it supports SATA or NVMe.</li>
+                    <li><strong>SATA Ports:</strong> For connecting SATA SSDs, HDDs, and optical drives.</li>
+                    <li><strong>Chipset:</strong> Controls communication between CPU, RAM, and peripherals. Determines features and compatibility.</li>
+                    <li><strong>VRMs (Voltage Regulator Modules):</strong> Regulate power to the CPU and RAM for stability.</li>
+                    <li><strong>24-pin ATX Power Connector:</strong> Main power input from PSU.</li>
+                    <li><strong>8-pin/4-pin CPU Power Connector:</strong> Additional power for the CPU.</li>
+                    <li><strong>Front Panel Header:</strong> Connects case buttons (power, reset) and LEDs.</li>
+                    <li><strong>USB Headers:</strong> For front panel USB ports.</li>
+                    <li><strong>Fan Headers:</strong> For connecting case and CPU fans.</li>
+                    <li><strong>BIOS/UEFI Chip:</strong> Stores firmware that boots the PC and manages hardware settings.</li>
+                    <li><strong>Audio Chipset:</strong> Provides onboard sound output.</li>
+                    <li><strong>Rear I/O Ports:</strong> USB, HDMI, DisplayPort, Ethernet, audio jacks, etc.</li>
+                </ul>
+            </div>
+            <h3>Wires & Cables Needed to Build a PC</h3>
+            <div class="card">
+                <ul>
+                    <li><strong>24-pin ATX Power Cable:</strong> Main power from PSU to motherboard.</li>
+                    <li><strong>8-pin (or 4-pin) CPU Power Cable:</strong> Powers the CPU, connects PSU to motherboard near CPU socket.</li>
+                    <li><strong>PCIe Power Cables (6/8-pin):</strong> Power for dedicated GPUs, connects PSU to graphics card.</li>
+                    <li><strong>SATA Power Cables:</strong> Power for SATA SSDs, HDDs, and optical drives, from PSU.</li>
+                    <li><strong>SATA Data Cables:</strong> Connects SATA drives to motherboard SATA ports.</li>
+                    <li><strong>M.2 Screws:</strong> Secure M.2 SSDs to the motherboard (no cable needed, but a screw is required).</li>
+                    <li><strong>Front Panel Connectors:</strong> Small wires from case to motherboard for power/reset buttons, power/HDD LEDs, and sometimes speaker.</li>
+                    <li><strong>USB Header Cables:</strong> Connect front panel USB ports to motherboard headers.</li>
+                    <li><strong>Audio Header Cable:</strong> Connects front panel audio jacks to motherboard.</li>
+                    <li><strong>Fan Cables:</strong> Connect case and CPU fans to motherboard fan headers or PSU.</li>
+                    <li><strong>Display Cables:</strong> HDMI, DisplayPort, DVI, or VGA cables connect GPU/motherboard to monitor (external, not inside case).</li>
+                </ul>
+            </div>
+            <h3>Other Important Parts & Tools</h3>
+            <div class="card">
+                <ul>
+                    <li><strong>Thermal Paste:</strong> Applied between CPU and cooler for better heat transfer (often pre-applied).</li>
+                    <li><strong>Screwdriver:</strong> Usually Phillips #2 for most screws.</li>
+                    <li><strong>Anti-static Wrist Strap:</strong> Optional, helps prevent static damage to components.</li>
+                    <li><strong>Cable Ties:</strong> For cable management.</li>
+                    <li><strong>Manuals:</strong> Motherboard and case manuals are very helpful for correct connections.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="ram" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/DDR_Memory_Module_Comparison.jpg" alt="Comparison of DDR3, DDR4, and DDR5 RAM modules" class="section-img" width="100%" style="max-width:500px;display:block;margin:auto;margin-bottom:1rem;" />
+            <h2>RAM Types: DDR3 vs DDR4 vs DDR5</h2>
+            <table aria-label="RAM Comparison Table">
+                <thead>
+                    <tr>
+                        <th scope="col">Type</th>
+                        <th scope="col">Speed (MT/s)</th>
+                        <th scope="col">Voltage</th>
+                        <th scope="col">Max Capacity</th>
+                        <th scope="col">Release Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DDR3</td>
+                        <td>800–2133</td>
+                        <td>1.5V</td>
+                        <td>Up to 16GB/module</td>
+                        <td>2007</td>
+                    </tr>
+                    <tr>
+                        <td>DDR4</td>
+                        <td>1600–3200+</td>
+                        <td>1.2V</td>
+                        <td>Up to 32GB/module</td>
+                        <td>2014</td>
+                    </tr>
+                    <tr>
+                        <td>DDR5</td>
+                        <td>4800–8400+</td>
+                        <td>1.1V</td>
+                        <td>Up to 128GB/module</td>
+                        <td>2020</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Key Differences:</strong> DDR5 is faster and more efficient than DDR4 and DDR3, with higher capacities and lower voltage. Always check your motherboard and CPU for supported RAM types and speeds. Dual-channel or quad-channel configurations can improve performance. ECC RAM is used for servers and workstations for error correction.</p>
+        </section>
+        <section id="storage" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Hard_disk_and_SSD.jpg" alt="A hard disk drive and a solid state drive side by side" class="section-img" width="100%" style="max-width:500px;display:block;margin:auto;margin-bottom:1rem;" />
+            <h2>Storage Devices: HDD, SSD, and M.2</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>HDD (Hard Disk Drive):</strong> Uses spinning disks, slower, more affordable, higher capacities. Good for mass storage and backups.</li>
+                    <li><strong>SATA SSD (Solid State Drive):</strong> Faster than HDD, no moving parts, uses SATA interface. Great for operating systems and frequently used programs.</li>
+                    <li><strong>M.2 SSD:</strong> Small form factor, connects directly to motherboard, can use SATA or NVMe (PCIe) interface. NVMe M.2 SSDs are much faster than SATA SSDs. Ideal for ultra-fast boot and load times.</li>
+                </ul>
+                <p><strong>Tip:</strong> For best performance, use an NVMe M.2 SSD for your operating system and a larger HDD for storage. Always back up important data to an external drive or cloud service.</p>
+            </div>
+        </section>
+        <section id="graphics" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/GPU_and_CPU.jpg" alt="A graphics card (GPU) and a central processing unit (CPU)" class="section-img" width="100%" style="max-width:500px;display:block;margin:auto;margin-bottom:1rem;" />
+            <h2>Integrated Graphics vs Dedicated GPU</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Integrated Graphics:</strong> Built into the CPU, uses system RAM, suitable for basic tasks, office work, streaming, and light gaming. Saves power and cost.</li>
+                    <li><strong>Dedicated GPU:</strong> Separate card, has its own VRAM, essential for gaming, video editing, 3D rendering, and AI workloads. Offers much higher performance and more display outputs.</li>
+                </ul>
+                <p><strong>Note:</strong> Not all CPUs have integrated graphics. For demanding applications, a dedicated GPU is recommended. Some motherboards require a GPU to display video if the CPU lacks integrated graphics.</p>
+            </div>
+        </section>
+        <section id="slots" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/PCI_Express_Slots.jpg" alt="Motherboard PCI Express slots and connectors" class="section-img" width="100%" style="max-width:500px;display:block;margin:auto;margin-bottom:1rem;" />
+            <h2>Motherboard Slots & Ports Explained</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>CPU Socket:</strong> Where the processor is installed. Must match CPU type (e.g., LGA1700, AM5). Handle with care to avoid bending pins.</li>
+                    <li><strong>RAM Slots (DIMM):</strong> For memory modules. Number and type (DDR3/4/5) depend on motherboard. Install RAM in the correct slots for dual/quad channel.</li>
+                    <li><strong>PCIe Slots:</strong> For GPUs, sound cards, network cards. PCIe x16 is for graphics cards; x1/x4 for other devices. Check for reinforced slots for heavy GPUs.</li>
+                    <li><strong>M.2 Slot:</strong> For M.2 SSDs or Wi-Fi cards. Check if it supports SATA or NVMe. Some boards have heatsinks for M.2 drives.</li>
+                    <li><strong>SATA Ports:</strong> For connecting HDDs, SSDs, and optical drives. L-shaped connectors prevent incorrect insertion.</li>
+                    <li><strong>USB Headers:</strong> For front panel USB ports. USB 2.0, 3.0, and USB-C headers may be present.</li>
+                    <li><strong>24-pin ATX Power:</strong> Main power connector from PSU. Ensure a firm connection.</li>
+                    <li><strong>8-pin CPU Power:</strong> Additional power for CPU. Some high-end boards use 8+4 or dual 8-pin connectors.</li>
+                    <li><strong>Fan Headers:</strong> For connecting case and CPU fans. PWM headers allow speed control.</li>
+                    <li><strong>Front Panel Header:</strong> For case power/reset buttons and LEDs. Refer to the motherboard manual for pin layout.</li>
+                    <li><strong>Audio Header:</strong> For front panel audio jacks. Usually located at the bottom left of the board.</li>
+                    <li><strong>BIOS/UEFI Chip:</strong> Stores firmware that boots the PC and manages hardware settings. Some boards support dual BIOS for recovery.</li>
+                    <li><strong>Rear I/O Ports:</strong> USB, HDMI, DisplayPort, Ethernet, audio jacks, PS/2, and sometimes Wi-Fi antennas. Check for clear labeling and shielding.</li>
+                </ul>
+            </div>
+        <section id="assembly" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/PC_building_tools.jpg" alt="PC building tools including screwdriver, anti-static wrist strap, and cable ties" class="section-img" width="100%" style="max-width:500px;display:block;margin:auto;margin-bottom:1rem;" />
+            <h2>PC Assembly Steps</h2>
+            <div class="card">
+                <ol>
+                    <li>Prepare your workspace: Clean, static-free, and well-lit. Wear an anti-static wrist strap if possible.</li>
+                    <li>Install the CPU: Open the socket, align the CPU, and gently place it in. Lock the socket.</li>
+                    <li>Apply thermal paste (if not pre-applied) and install the CPU cooler.</li>
+                    <li>Install RAM: Insert sticks into the correct slots until they click.</li>
+                    <li>Install M.2 SSD (if applicable): Insert at an angle, secure with screw.</li>
+                    <li>Place the motherboard in the case, aligning with standoffs. Secure with screws.</li>
+                    <li>Install PSU: Secure in the case, route cables for neatness.</li>
+                    <li>Connect 24-pin and 8-pin power cables to the motherboard.</li>
+                    <li>Install storage drives (HDD/SSD) and connect SATA data and power cables.</li>
+                    <li>Install GPU and other expansion cards in PCIe slots. Connect PCIe power cables if needed.</li>
+                    <li>Connect front panel connectors (power, reset, LEDs), USB, and audio headers.</li>
+                    <li>Install case fans and connect to fan headers.</li>
+                    <li>Double-check all connections and cable management.</li>
+                    <li>Close the case, connect monitor, keyboard, and mouse.</li>
+                    <li>Power on and enter BIOS/UEFI to check hardware is detected.</li>
+                    <li>Install your operating system and drivers.</li>
+                </ol>
+                <p><strong>Tip:</strong> Refer to your motherboard and case manuals for specific instructions and diagrams.</p>
+            </div>
+        </section>
+        <section id="troubleshooting" tabindex="0">
+            <h2>Common Troubleshooting Tips</h2>
+            <div class="card">
+                <ul>
+                    <li>No power: Check PSU switch, power cable, and front panel connectors.</li>
+                    <li>No display: Ensure GPU and monitor are connected, check RAM and CPU seating.</li>
+                    <li>Beep codes or error LEDs: Refer to motherboard manual for meanings.</li>
+                    <li>Overheating: Reapply thermal paste, check fan connections, improve airflow.</li>
+                    <li>USB/Audio not working: Check header connections and drivers.</li>
+                    <li>System instability: Test RAM with one stick at a time, check for BIOS updates.</li>
+                </ul>
+                <p><strong>Tip:</strong> Build step-by-step and test as you go to catch issues early.</p>
+            </div>
+        </section>
+        <section id="maintenance" tabindex="0">
+            <h2>PC Maintenance & Upgrades</h2>
+            <div class="card">
+                <ul>
+                    <li>Regularly clean dust from fans, filters, and heatsinks with compressed air.</li>
+                    <li>Update your operating system and drivers for security and performance.</li>
+                    <li>Monitor temperatures and fan speeds with software tools.</li>
+                    <li>Back up important data to external drives or cloud storage.</li>
+                    <li>Upgrade RAM, storage, or GPU as needed for better performance.</li>
+                    <li>Replace thermal paste every few years for optimal cooling.</li>
+                </ul>
+            </div>
+        </section>
+        </section>
+        <section id="accessibility" tabindex="0">
+            <h2>Accessibility, Privacy & Compliance</h2>
+            <div class="card">
+                <ul>
+                    <li>This website is designed to meet <strong>WCAG 2.1 Level AA</strong> accessibility standards: semantic HTML, keyboard navigation, color contrast, ARIA labels, and screen reader support.</li>
+                    <li>Compliant with <strong>HIPAA</strong> (no personal or health information is collected or displayed), <strong>FISMA</strong> (no sensitive federal data is stored or processed), and the <strong>Privacy Act</strong> & <strong>OMB Guidelines</strong> (no personal data is collected, and privacy is protected).</li>
+                    <li>Written in clear, simple language to follow the <strong>Plain Writing Act of 2010</strong>. All instructions and explanations are easy to understand.</li>
+                    <li>All images include descriptive <code>alt</code> text for accessibility.</li>
+                    <li>Content is structured for screen readers and easy navigation by keyboard or assistive technology.</li>
+                    <li>Designed for compatibility with Surface Pro 7, iPads, tablets, mobile phones, and regular PCs. Tested for modern browsers (Chrome, Edge, Firefox, Safari, Opera) and graceful fallback for older browsers.</li>
+                </ul>
+                <p style="font-size:1rem;margin-top:1rem;">If you have accessibility or privacy concerns, please <a href="mailto:derekleyman@aol.com" aria-label="Email the site administrator">contact the site administrator</a>.</p>
+            </div>
+        </section>
+        <a href="#top" style="display:block;text-align:right;">Back to Top</a>
+    </main>
+    <footer>
+        <p>&copy; 2025 How to Build a PC. All rights reserved. | <a href="#accessibility">Accessibility & Privacy</a></p>
+    </footer>
+</body>
+</html>
