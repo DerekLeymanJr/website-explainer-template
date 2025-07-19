@@ -16,10 +16,6 @@ Customizable Sections: Clearly organized sections for essential PC components, R
 
 Search Functionality: Built-in JavaScript function allowing users to quickly navigate between sections.
 
-Usage
-
-Feel free to use, modify, and distribute this template for personal or commercial projects. Attribution is appreciated but not required.
-
 License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
